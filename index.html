@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>在线简易画板</title>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+	</head>
+	<body>
+		<!-- 这个画板要做成模拟window电脑上的画板功能，所以要把所有元素放到一个盒子里面，然后在最开始，画板元素前边要做一个菜单栏盒子，里边盛放各种工具元素 -->
+		<div id="box">
+			<div id="menu">
+				<div id="tools">
+					<div id="tool">
+						<div id="tool-top">
+							<img src="./images/qianbi.png" class="box-hover">
+							<img src="./images/颜料.png" class="box-hover">
+							<img src="./images/文本.png" class="box-hover">
+						</div>
+						<div id="tool-bottom">
+							<img src="./images/橡皮.png" class="box-hover">
+							<img src="./images/吸管.png" class="box-hover">
+							<img src="./images/放大镜.png" class="box-hover">
+						</div>
+						<span style="font-size: 15px;">
+							工具
+						</span>
+					</div>
+					<div id="tool-pen">
+						<div class="pen-top">
+							<img src="./images/刷子.png">
+						</div>
+						<div class="pen-bottom" style="font-size: 15px;">刷子<div><span>◇</span></div></div>
+					</div>
+					<div id="tool-clear">
+						<div class="pen-top">
+							<img src="./images/刷子.png">
+						</div>
+						<div class="pen-bottom" style="font-size: 15px;">清空<div><span>◇</span></div></div>
+					</div>
+					<div id="tool-return">
+						<div class="pen-top">
+							<img src="./images/刷子.png">
+						</div>
+						<div class="pen-bottom" style="font-size: 15px;">上一步<div><span>◇</span></div></div>
+					</div>
+				</div>
+				
+				<div id="shape">
+					<div id="shape-box">
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+					<div id="shape-form">
+						<div class="box-hover">
+							<div></div><span style="font-size: 15px;">轮廓<span><span>◇</span></span></span>
+						</div>
+						<div class="box-hover">
+							<div></div><span style="font-size: 15px;">填充<span><span>◇</span></span></span>
+						</div>
+					</div>
+					<div id="shape-lineWidth" class="box-hover" style="font-size: 15px;">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						粗细
+						<div><span>◇</span></div>
+						<div id="lineWidth-hidden" style="display: none;">
+							<div class="box-hover"><div></div></div>
+							<div class="box-hover"><div></div></div>
+							<div class="box-hover"><div></div></div>
+							<div class="box-hover"><div></div></div>
+							<div class="box-hover" style="font-size: 12px;"><input type="range" id="inputLineWidth" min="1" max="20" />自定义线宽:1-20px</div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="color">
+					<div id="color1">
+						<div><div class="color1"></div></div>
+						<p id="color1-des">颜色1</p>
+					</div>
+					<div id="color2">
+						<div class="color2"></div>
+						<p id="color2-des">颜色2</p>
+					</div>
+					<div id="colors">
+						<ul>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li class='colors'><div></div></li>
+							<li><div></div></li>
+							<li><div></div></li>
+							<li><div></div></li>
+							<li><div></div></li>
+							<li><div></div></li>
+							<li><div></div></li>
+							<li><div></div></li>
+							<li><div></div></li>
+							<li><div></div></li>
+							<li><div></div></li>
+						</ul>
+					</div>
+					<div id="self-color">
+						<div><div></div></div>
+						<p>编辑颜色</p>
+					</div>
+				</div>
+			</div>
+			<!-- 准备画板 -->
+			<canvas id="drawing-board"></canvas>
+		</div>
+		<script type="text/javascript" src="index.js"></script>
+	</body>
+</html>

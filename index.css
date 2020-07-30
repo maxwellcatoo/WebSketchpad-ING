@@ -1,0 +1,580 @@
+	/* 去除浏览器自带内外边距 */
+	body, div ,canvas,body,html,ul,li{
+		margin: 0;
+		padding: 0;
+	}
+	
+	body,html{
+		width: 100%;
+		height: 100%;
+	}
+	#box{
+		width: 100%;
+		height: 100%;
+	}
+	/* 通用样式 开始 */
+	.box-onclick{
+		background-color: #FFCE69;
+	}
+	.border-hover:hover{
+		border-color: #FFB700;
+	}
+	.box-hover:hover {
+		background-color: #FFCE69;
+	}
+	.onclick {
+		background-color: #FFC662;
+	}
+	/* 统一的样式 结束 */
+	/* 设置菜单栏样式 开始 */
+	#menu{
+		width: 100%;
+		height: 15%;
+		cursor: pointer;
+		/* border: 1px solid red; */
+		background: linear-gradient(to bottom,#F6FBFF,#DCE6F4);
+		/* overflow: hidden; */
+	}
+	#menu>div{
+		float: left;
+		width: 33%;
+		height: 90%;
+		border-left: solid 1px #A5B8D0;
+		border-right: solid 1px #A5B8D0;
+		margin-top: 7px;
+	}
+		/* 设置工具栏样式 开始 */
+		#tool {
+			float: left;
+			width: 130px;
+			height: 100px;
+			margin: 10px 70px 0 70px;
+			/* border: 1px solid red; */
+			text-align: center;
+		}
+		#tool-top {
+			width: 90px;
+			height: 30px;
+			margin: 5px auto;
+			border: 1px solid #ADBDD4;
+			border-radius: 5px;
+		}
+		#tool-bottom {
+			width: 90px;
+			height: 30px;
+			margin: 5px auto;
+			margin-bottom: 0px;
+			border: 1px solid #ADBDD4;
+			border-radius: 5px;
+		}
+		#tool-top>img {
+			width: 30px;
+			height: 30px;
+			float: left;
+		}
+		#tool-bottom>img {
+			width: 30px;
+			height: 30px;
+			float: left;
+		}
+		#tool-pen {
+			width: 60px;
+			height: 110px;
+			float: left;
+			margin-left: 0px;
+			margin-top: 10px;
+			border: 1px solid rgba(30,30,30,0);
+			overflow: hidden;
+		}
+		#tool-pen:hover {
+			border: 1px solid #FFB700;
+			border-radius: 5px;
+			background-color: #FFF3AC;
+		}
+		.pen-top {
+			width: 50px;
+			height: 50px;
+			padding: 5px 10px;
+		}
+		.pen-top:hover,#pen-bottom:hover {
+			background-color: #FFD67C;
+		}
+		.pen-top>img {
+			width: 40px;
+			height: 40px;
+			/* margin: 10px auto; */
+		}
+		.pen-bottom {
+			width: 60px;
+			height: 50px;
+			text-align: center;
+			padding-top: 8px;
+		}
+		.pen-bottom {
+			width: 60px;
+			height: 50px;
+			margin: 0 auto;
+		}
+		.pen-bottom>div {
+			width: 10px;
+			height: 10px;
+			margin: 5px auto;
+			overflow: hidden;
+		}
+		.pen-bottom span {
+			position:relative;
+			top: -10px;
+		}
+		#tool-clear {
+			float: left;
+			margin: 10px 0 0 60px;
+			width: 60px;
+			height: 110px;
+			border-radius: 5px;
+			border: 1px solid rgba(30,30,30,0);
+			overflow: hidden;
+		}
+		#tool-clear:hover {
+			border: 1px solid #FFB700;
+			border-radius: 5px;
+			background-color: #FFF3AC;
+		}
+		#tool-return {
+			margin-top: 10px;
+			margin-right: 60px;
+			float: right;
+			width: 60px;
+			height: 110px;
+			border-radius: 5px;
+			border: 1px solid rgba(30,30,30,0);
+			overflow: hidden;
+		}
+		#tool-return:hover {
+			border: 1px solid #FFB700;
+			border-radius: 5px;
+			background-color: #FFF3AC;
+		}
+		/* 设置工具栏样式 结束 */
+		
+		/* 设置形状栏样式 开始 */
+		#shape-box {
+			width: 290px;
+			height: 70%;
+			float: left;
+			background-color: #F3F7FC;
+			border: 1px solid #AABBD2;
+			margin: 10px 10px 10px 50px;
+			overflow: auto;
+		}
+		#shape-box>ul>li {
+			list-style: none;
+			width: 35px;
+			height: 35px;
+			margin: 2px 0 2px 2px; 
+			float: left;
+			border: 1px solid white;
+		}
+		#shape-box>ul>li:hover {
+			border-color: #FFB700;
+			box-shadow: 0 0 2px 2px #FFB700 inset;
+		}
+		#shape-box>ul>li:first-child {
+			background: transparent url(./images/1.png) no-repeat local -2px -1px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(2) {
+			background: transparent url(./images/1.png) no-repeat local -32px -1px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(3) {
+			background: transparent url(./images/1.png) no-repeat scroll -64px -1px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(4) {
+			background: transparent url(./images/1.png) no-repeat scroll -93px -1px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(5) {
+			background: transparent url(./images/1.png) no-repeat scroll -125px -1px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(6) {
+			background: transparent url(./images/1.png) no-repeat scroll -156px -1px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(7) {
+			background: transparent url(./images/1.png) no-repeat scroll -187px -1px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(8) {
+			background: transparent url(./images/1.png) no-repeat scroll -2px -35px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(9) {
+			background: transparent url(./images/1.png) no-repeat scroll -32px -35px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(10) {
+			background: transparent url(./images/1.png) no-repeat scroll -64px -35px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(11) {
+			background: transparent url(./images/1.png) no-repeat scroll -93px -35px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(12) {
+			background: transparent url(./images/1.png) no-repeat scroll -125px -35px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(13) {
+			background: transparent url(./images/1.png) no-repeat scroll -156px -35px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(14) {
+			background: transparent url(./images/1.png) no-repeat scroll -187px -35px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(15) {
+			background: transparent url(./images/1.png) no-repeat scroll -2px -69px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(16) {
+			background: transparent url(./images/1.png) no-repeat scroll -32px -69px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(17) {
+			background: transparent url(./images/1.png) no-repeat scroll -64px -69px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(18) {
+			background: transparent url(./images/1.png) no-repeat scroll -93px -69px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(19) {
+			background: transparent url(./images/1.png) no-repeat scroll -125px -69px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(20) {
+			background: transparent url(./images/1.png) no-repeat scroll -156px -69px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(21) {
+			background: transparent url(./images/1.png) no-repeat scroll -187px -69px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:nth-child(22) {
+			background: transparent url(./images/1.png) no-repeat scroll -2px -103px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-box>ul>li:last-child {
+			background: transparent url(./images/1.png) no-repeat scroll -32px -103px;
+			background-size: 640% 400%;
+			overflow: hidden;
+		}
+		#shape-form {
+			width: 100px;
+			height: 70px;
+			margin: 2px 10px 0 30px;
+			float: left;
+			/* border: 1px solid red; */
+		}
+		#shape-form>div {
+			width: 100px;
+			height: 35px;
+			/* position: relative; */
+		}
+		#shape-form>div>div {
+			width: 30px;
+			height: 30px;
+			margin-top: 2.5px;
+			margin-left: 2.5px;
+			/* border: 1px solid red; */
+			float: left;
+		}
+		#shape-form>div>span {
+			float: left;
+			position: relative;
+			top: 7px;
+			left: 10px;	
+		}
+		#shape-form>div>span>span {
+			/* margin-top: 10px; */
+			/* margin-left: 10px; */
+			display: block;
+			float: right;
+			width: 10px;
+			height: 10px;
+			overflow: hidden;
+			position: relative;
+			top: 9px;
+			left: 5px;
+		}
+		#shape-form>div>span>span>span {
+			display: block;
+			position: relative;
+			top: -10px;
+		}
+		#shape-form>div:first-child>div {
+			background: transparent url(./images/shape.png) no-repeat scroll -7px 0px;
+			background-size: 160% 200%;
+			overflow: hidden;
+		}
+		#shape-form>div:last-child>div {
+			background: transparent url(./images/shape.png) no-repeat scroll -10px -25px;
+			background-size: 160% 200%;
+			overflow: hidden;
+		}
+		#shape-lineWidth {
+			text-align: center;
+			width: 60px;
+			height: 100px;
+			/* border: 1px solid red; */
+			float: right;
+			margin-right: 50px;
+			position: relative;
+			/* margin-top: 10px; */
+		}
+		#shape-lineWidth:hover {
+			border-radius: 5px;
+		}
+		#shape-lineWidth>div:first-child {
+			width: 50px;
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+			margin-top: 10px;
+			margin-left: 5px;
+		}
+		#shape-lineWidth>div:nth-child(2) {
+			width: 50px;
+			border-top: 2px solid black;
+			border-bottom: 2px solid black;
+			margin-top: 8px;
+			margin-left: 5px;
+		}
+		#shape-lineWidth>div:nth-child(3) {
+			width: 50px;
+			border-top: 3px solid black;
+			border-bottom: 3px solid black;
+			margin-top: 8px;
+			margin-left: 5px;
+		}
+		#shape-lineWidth>div:nth-child(4) {
+			width: 50px;
+			border-top: 6px solid black;
+			border-bottom: 6px solid black;
+			margin-top: 8px;
+			margin-left: 5px;
+		}
+		#shape-lineWidth>div:nth-child(5) {
+			text-align: center;
+			margin: 5px auto;
+			width: 10px;
+			height: 5px;
+			overflow: hidden;
+		}
+		#shape-lineWidth>div:nth-child(5)>span {
+			position: relative;
+			top: -10px;
+		}
+		#lineWidth-hidden {
+			/* display: none; */
+			width: 150px;
+			height: 250px;
+			position: absolute;
+			top: 100px;
+			left: 0;
+			border: 1px solid #808080;
+			border-radius: 5px;
+			background-color: white;
+		}
+		#lineWidth-hidden>div {
+			width: 150px;
+			height: 50px;
+			overflow: hidden;
+		}
+		#lineWidth-hidden>div:first-child>div {
+			background-color: black;
+			width: 120px;
+			height: 1px;
+			margin: 24.5px auto;
+		}
+		#lineWidth-hidden>div:nth-child(2)>div {
+			background-color: black;
+			width: 120px;
+			height: 2px;
+			margin: 24px auto;
+		}
+		#lineWidth-hidden>div:nth-child(3)>div {
+			background-color: black;
+			width: 120px;
+			height: 4px;
+			margin: 23px auto;
+		}
+		#lineWidth-hidden>div:nth-child(4)>div {
+			background-color: black;
+			width: 120px;
+			height: 8px;
+			margin: 21px auto;
+		}
+		#lineWidth-hidden>div:nth-child(5){
+			font-weight: bold;
+			color: #1E395B;
+			text-align: center;
+			/* height: 50px;
+			line-height: 50px; */
+		}
+		#lineWidth-hidden input {
+			margin: 5px auto 2px;
+			width: 140px;
+			height: 20px;
+		}
+		#lineWidth-hidden span {
+			margin: 0 auto;
+			height: 30px;
+			line-height: 30px;
+		}
+		/* 设置形状栏样式 结束 */
+		
+		/* 设置颜色栏样式 开始 */
+		#color>div {
+			float: left;
+			margin-left: 10px;
+		}
+		
+		#color1 {
+			border-radius: 5px;
+		}
+		#color1:hover {
+			background-color: #FFCE69;
+		}
+		/* #color1:active {
+			background-color: #FFC561;
+		} */
+		#color1>div:first-child {
+			height: 42px;
+			width: 42px;
+			margin: 8px 8px 0px 8px;
+			/* padding: 1px; */
+			background-color: #E9F2FB;
+			border: 1px solid #808080;
+			
+		}
+		.color1 {
+			height: 40px;
+			width: 40px;
+			background-color: black;
+			margin: 1px;
+		}
+		#color1-des {
+			font-size: 15px;
+			margin-left: 10px;
+		}
+		#color2 {
+			border-radius: 5px;
+		}
+		#color2:hover {
+			background-color: #FFCE69;
+		}
+		/* #color2:active {
+			background-color: #FFC561;
+		} */
+		.color2 {
+			height: 30px;
+			width: 30px;
+			border: 1px solid #808080;
+			background-color: white;
+			margin: 20px 10px 0 10px;
+		}
+		#color2-des {
+			font-size: 12px;
+			margin-left: 10px;
+			margin-top: 18px;
+		}
+		#colors {
+			width: 360px;
+			height: 80%;
+			/* border: 1px solid red; */
+			margin-top: 10px;
+		}
+		#colors>ul {
+			list-style: none;
+		}
+		#colors li {
+			display: block;
+			width: 30px;
+			height: 30px;
+			margin: 0 2px 2px 2px;
+			border: 1px solid #808080;
+			background-color: white;
+			float: left;
+			transition: all 0.2s linear 0s;
+		}
+		#color .colors:hover {
+			border-color: #F09336;
+			transform: scale(1.1);
+			/* border-color: #808080; */
+		}
+		#colors div {
+			width: 28px;
+			height: 28px;
+			margin: 1px;
+		}
+		#self-color {
+			float: right;
+			border-radius: 5px;
+		}
+		#self-color:hover {
+			background-color: #FFCE69;
+		}
+		#self-color:active {
+			background-color: #FFC561;
+		}
+		#self-color>div {
+			height: 42px;
+			width: 42px;
+			margin: 8px 8px 0px 8px;
+			/* padding: 1px; */
+			background-color: #E9F2FB;
+			border: 1px solid #808080;
+		}
+		#self-color>div>div{
+			height: 40px;
+			width: 40px;
+			background: linear-gradient(to right,red,yellow,green,blue,pink);
+			background-color: black;
+			margin: 1px;
+		}
+		#self-color>p {
+			font-size: 15px;
+		}
+		
+		/* 设置颜色栏样式 结束 */
+		
+	/* 设置菜单栏样式 结束 */
+	#drawing-board{
+		display: block;
+		cursor: crosshair;
+	}
+	
