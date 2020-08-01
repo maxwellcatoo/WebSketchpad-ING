@@ -1,0 +1,346 @@
+/* 清除默认内外边距 */
+			body, div ,canvas,body,html,ul,li{
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				overflow: hidden;
+			}
+			#drawing-board {
+				position: fixed;
+				cursor: crosshair;
+				z-index: -1;
+			}
+/* 菜单总栏 */
+			.main {
+				position: absolute;
+				display: flex;
+				flex-flow: column;
+				justify-content: space-around;
+				left: 1vh;
+				top: 50%;
+				transform: translate(0,-50%);
+				width: 6vh;
+				height: 60vh;
+				z-index: 5;
+			}
+			
+/* 画笔颜色 */
+			.penColor {
+				background: url('./img/color.svg');
+				background-size: 6vh;
+				height: 6vh;
+				width: 6vh;
+				border-radius: 50%;
+			}
+			.penColor:active {
+				box-shadow: 0 0 10px 2px royalblue;
+			}
+			#penColor-hidden {
+				width: calc(10vh + 6px);
+				height: cale(15vh + 10px);
+				position: relative;
+				top: -8vh;
+				left: 6vh;
+				/* border: 1px solid #808080; */
+				border-radius: 5px;
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+			  justify-content: space-evenly;
+			}
+			.penColorItem {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-grow: 1;
+				width: 5vh;
+				height: 5vh;
+				/* border-radius: 50%; */
+				background-color: white;
+				/* box-shadow: 0 0 2px 1px gray inset; */
+				/* border: 1px solid gray; */
+			}
+			.penColorItem:hover {
+				border: 1px solid #FFA500;
+			}
+			.penColorItem>div {
+				height: 4vh;
+				width: 4vh;
+				/* border-radius: 50%; */
+			transition: all 0.25s linear 0s;
+			}
+			.penColorItem>div:hover {
+				transform: scale(1.2);
+			}
+			.penColorItem:first-child>div {
+				background-color: black;
+			}
+			.penColorItem:nth-child(2)>div {
+				background-color: red;
+			}
+			.penColorItem:nth-child(3)>div {
+				background-color: blue;
+			}
+			.penColorItem:nth-child(4)>div {
+				background-color: orange;
+			}
+			.penColorItem:nth-child(5)>div {
+				background-color: green;
+			}
+			.penColorItem:nth-child(6)>div {
+				background-color: gray;
+			}
+/* 画笔粗细 */
+			.penSize {
+				height: 6vh;
+				width: 6vh;
+				/* background-color: red; */
+				border-radius: 50%;
+			}
+			.penSize:active {
+				box-shadow: 0 0 10px 2px royalblue;
+				/* background-color: royalblue; */
+			}
+			.penSize>div:first-child {
+				border: 1px solid black;
+				width: 4vh;
+				margin: 1.3vh auto 0;
+			}
+			.penSize>div:nth-child(2) {
+				border: 2px solid black;
+				width: 4vh;
+				margin: 1vh auto 0;
+			}
+			.penSize>div:nth-child(3) {
+				border: 3px solid black;
+				width: 4vh;
+				margin: 1vh auto 0;
+			}
+			#lineWidth-hidden {
+				/* display: none; */
+				/* width: 150px; */
+				width: 8vw;
+				height: 27.5vh;
+				position: relative;
+				top: -5vh;
+				left: 6vh;
+				border: 1px solid #808080;
+				border-radius: 5px;
+				background-color: white;
+			}
+			#lineWidth-hidden>div {
+				width: 8vw;
+				height: 5.5vh;
+				overflow: hidden;
+			}
+			#lineWidth-hidden>div:first-child>div {
+				background-color: black;
+				width: 7vw;
+				height: 1px;
+				margin: 24.5px auto;
+			}
+			#lineWidth-hidden>div:nth-child(2)>div {
+				background-color: black;
+				width: 7vw;
+				height: 2px;
+				margin: 24px auto;
+			}
+			#lineWidth-hidden>div:nth-child(3)>div {
+				background-color: black;
+				width: 7vw;
+				height: 4px;
+				margin: 23px auto;
+			}
+			#lineWidth-hidden>div:nth-child(4)>div {
+				background-color: black;
+				width: 7vw;
+				height: 8px;
+				margin: 21px auto 0;
+			}
+			#lineWidth-hidden>div:nth-child(5){
+				font-weight: bold;
+				color: #1E395B;
+				text-align: center;
+			}
+			#lineWidth-hidden input {
+				margin-top: 10px;
+				width: 8vw;
+				height: 2vh;
+			}
+			#lineWidth-hidden span {
+				margin: 0 auto;
+				height: 15px;
+				line-height: 15px;
+				font-size: 10px;
+			}
+			#lineWidth-hidden div:hover {
+				background-color: #FFA500;
+			}
+			
+/* 工具项 */
+			.toolsItem {
+				height: 6vh;
+				width: 6vh;
+				/* background-color: orange; */
+				border-radius: 50%;
+			}
+			.active {
+				box-shadow: 0 0 10px 2px royalblue;
+				background-color: royalblue;
+			}
+			#pen {
+				background: url('./img/pen.svg');
+				background-size: 6vh;
+			}
+			#eraser {
+				background: url('./img/eraser.svg');
+				background-size: 6vh;
+			}
+			#clear {
+				background: url('./img/brush.svg');
+				background-size: 6vh;
+			}
+			#clear:active {
+				box-shadow: 0 0 10px 2px royalblue;
+				/* background-color: royalblue; */
+			}
+			#return {
+				background: url('./img/return.svg');
+				background-size: 6vh;
+			}
+			#return:active {
+				box-shadow: 0 0 10px 2px royalblue;
+				/* background-color: royalblue; */
+			}
+			#save {
+				background: url('./img/save.svg') no-repeat;
+				background-size: 6vh;
+			}
+			#save:active {
+				box-shadow: 0 0 10px 2px royalblue;
+			}
+			
+			@media screen and (max-width: 768px) {
+			    .main {
+			    	position: absolute;
+			    	display: flex;
+			    	flex-flow: row;
+			    	justify-content: space-around;
+			    	left: 50%;
+			    	top: 92%;
+			    	transform: translate(-50%,0);
+			    	width: 90vw;
+			    	height: 10vw;
+			    	z-index: 5;
+			    }
+					.penColor {
+						width: 10vw;
+						height: 10vw;
+						background-size: 10vw;
+					}
+					#penColor-hidden {
+						width: calc(30vh + 12px);
+						height: cale(5vh + 2px);
+						position: relative;
+						top: -6vh;
+						left: 0vh;
+						border-radius: 5px;
+						display: flex;
+						flex-wrap: wrap;
+						flex-direction: row;
+					  justify-content: space-evenly;
+					}
+					.penColorItem {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						flex-grow: 1;
+						width: 5vh;
+						height: 5vh;
+						background-color: white;
+					}
+					.penSize {
+						width: 10vw;
+						height: 10vw;
+						background-size: 10vw;
+					}
+					#lineWidth-hidden {
+						width: 30vh;
+						height: 5vh;
+						position: relative;
+						top: -11vh;
+						left: -6.5vh;
+						border: 1px solid #808080;
+						border-radius: 5px;
+						background-color: white;
+					}
+					#lineWidth-hidden>div {
+						width: 5vh;
+						height: 5vh;
+						float: left;
+						overflow: hidden;
+						text-align: center;
+					}
+					#lineWidth-hidden>div:first-child>div {
+						background-color: black;
+						width: 1px;
+						height: 4vh;
+						margin: 0.5vh auto;
+					}
+					#lineWidth-hidden>div:nth-child(2)>div {
+						background-color: black;
+						width: 2px;
+						height: 4vh;
+						margin: 0.5vh auto;
+					}
+					#lineWidth-hidden>div:nth-child(3)>div {
+						background-color: black;
+						width: 4px;
+						height: 4vh;
+						margin: 0.5vh auto;
+					}
+					#lineWidth-hidden>div:nth-child(4)>div {
+						background-color: black;
+						width: 8px;
+						height: 4vh;
+						margin: 0.5vh auto;
+					}
+					#lineWidth-hidden>div:nth-child(5){
+						font-weight: bold;
+						color: #1E395B;
+						text-align: center;
+						width: 9vh;
+					}
+					#lineWidth-hidden input {
+						width: 9vh;
+					}
+					#lineWidth-hidden span {
+						display: none;
+					}
+					#pen {
+						width: 10vw;
+						height: 10vw;
+						background-size: 10vw;
+					}
+					#eraser {
+						width: 10vw;
+						height: 10vw;
+						background-size: 10vw;
+					}
+					#clear {
+						width: 10vw;
+						height: 10vw;
+						background-size: 10vw;
+					}
+					#return {
+						width: 10vw;
+						height: 10vw;
+						background-size: 10vw;
+					}
+					#save {
+						width: 10vw;
+						height: 10vw;
+						background-size: 10vw;
+					}
+			}

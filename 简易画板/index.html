@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>我的画板</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head>
+	<body>
+		<canvas id="drawing-board" width="" height=""></canvas>
+		<div class="main">
+			<!-- <input type="range" id="size" min="1" max="30" value="5" /> -->
+<!-- 画笔颜色 -->
+			<div class="penColor" title="颜色">
+				<div id="penColor-hidden" style="display: none;">
+					<div class="penColorItem" title="黑色"><div></div></div>
+					<div class="penColorItem" title="红色"><div></div></div>
+					<div class="penColorItem" title="蓝色"><div></div></div>
+					<div class="penColorItem" title="黄色"><div></div></div>
+					<div class="penColorItem" title="绿色"><div></div></div>
+					<div class="penColorItem" title="灰色"><div></div></div>
+				</div>
+			</div>
+			
+<!-- 画笔宽度 -->
+			<div class="penSize" id='shape-lineWidth' title="线宽">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div id="lineWidth-hidden" style="display: none;">
+					<div class="box-hover"><div></div></div>
+					<div class="box-hover"><div></div></div>
+					<div class="box-hover"><div></div></div>
+					<div class="box-hover"><div></div></div>
+					<div class="box-hover" style="font-size: 5px;"><input type="range" id="inputLineWidth" min="1" max="30"/><span>1-30px</span></div>
+				</div>
+			</div>
+				<div class="toolsItem" id="pen"title="画笔"></div>
+				<div class="toolsItem" id="eraser"title="橡皮擦"></div>
+				<div class="toolsItem" id="clear"title="清空"></div>
+				<div class="toolsItem" id="return" title="上一步"></div>
+				<div class="toolsItem" id="save" title="保存"></div>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>
